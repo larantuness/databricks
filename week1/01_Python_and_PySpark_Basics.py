@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # MAGIC %md
 # MAGIC # 01 · Python & PySpark Basics
 # MAGIC
@@ -69,6 +73,44 @@ print(f"{name} placed {orders} orders, total = {orders * price:.2f} €")
 
 # COMMAND ----------
 
+def sum(v1,v2):
+    if type(v1) == int and type(v2) == int:
+        return v1+v2
+    else:
+        return "Incorrect variable type"
+print(sum(1,2))
+print(sum("1","2"))
+
+
+# COMMAND ----------
+
+class Calculator:
+    def __init__(self,name):
+        self.name=name
+    def sum(self,a,b):
+        if type(a) == int and type(b) == int:
+            return a+b
+        else:
+            return "Incorrect variable type"
+    def sub(self,a,b):
+        return a-b
+    def validate(self,a,b):
+        if isinstance(a,int) and isinstance(b,int):
+            return True
+        else:
+            return False
+    def sum(self,a,b):
+        if self.validate(a,b):
+            return a+b
+        else:
+            return "Incorrect variable type"
+
+x = Calculator("Lara")
+print(x.name)
+print(x.sum(1,2))
+
+# COMMAND ----------
+
 # Lists: ordered collections, positions start at 0 (and -1 = last element)
 products = ["Laptop", "Mouse", "Keyboard"]
 products.append("Monitor")
@@ -130,6 +172,10 @@ print(f"Total revenue: {total:.2f}")
 # MAGIC - **Transformations** (`select`, `filter`, `withColumn`, `groupBy`…) only build a *plan*. Nothing runs yet.
 # MAGIC - **Actions** (`show`, `display`, `count`, `collect`, `write`…) execute the plan.
 # MAGIC - This is called **lazy evaluation**: Spark waits until it sees the whole plan, then optimizes it.
+
+# COMMAND ----------
+
+
 
 # COMMAND ----------
 

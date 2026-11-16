@@ -1,4 +1,8 @@
 # Databricks notebook source
+# /// script
+# [tool.databricks.environment]
+# environment_version = "6"
+# ///
 # MAGIC %md
 # MAGIC # 00a · Workspace Tour, Compute and Git Setup
 # MAGIC
@@ -56,6 +60,11 @@ print("Spark version:", spark.version)
 # MAGIC | **Dependencies** | Extra pip libraries (`package==version`) or a `requirements.txt`; see *Installed* and *pip logs* | Empty for now |
 # MAGIC
 # MAGIC 👉 **Try it:** open the panel, look at *Installed*, close it without changing anything.
+
+# COMMAND ----------
+
+# MAGIC %sql
+# MAGIC SELECT * FROM samples.nyctaxi.trips
 
 # COMMAND ----------
 
